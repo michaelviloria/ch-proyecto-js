@@ -10,6 +10,7 @@ alert(
 	"Aquí tienes 3 productos donde podrás ver su precio, ver y cambiar su cantidad y luego podrás ver el resultado total tanto en pantalla como en la consola del navegador"
 );
 
+// Suma de precios y visualizacion de los resultados
 function sumarPrecioProductos() {
 	let precioProductos = 0;
 	Productos.forEach((producto) => {
@@ -30,18 +31,20 @@ function sumarPrecioProductos() {
 	precioTotal.innerText = precioProductos;
 }
 
+// Verifica que los datos ingresados sean números.
 function verificarValorNumeico() {
-  let mensaje = 0;
+  let mensaje = "";
   do {
     mensaje = parseInt(prompt("Porfavor escribe un valor númerico."));
     if (isNaN(mensaje)) {
-      mensaje = 0;
+      mensaje = "";
     }
-  } while (mensaje === 0);
+  } while (mensaje === "");
 
   return mensaje;
 }
 
+// Inicio del proceso y muestra en pantalla mensajes al usuario.
 function mensajeCantidadProductos() {
 	let cantidadProducto1 = parseInt(
 		prompt("¿Qué cantidad deseas en el primer producto?")

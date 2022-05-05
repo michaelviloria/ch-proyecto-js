@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --color-primary: #b80c09;
+  --color-blue-sapphire: #0b4f6c;
+  --color-cyan-procces: #01baef;
+  --color-ghost-white: #fbfbff;
+  --color-rich-black: #040f16;
+  --color-rich-black-50: #040f1680;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+}
+a {
+  color: var(--color-rich-black);
+  text-decoration: none;
+  cursor: pointer;
+}
+.box-shadow {
+  box-shadow: 1px 1px 10px var(--color-rich-black-50);
+  border-radius: 10px;
+}
+
+/* NAV HADER */
+.nav--container {
+  background-color: var(--color-primary);
+  width: 100%;
+  padding: 1em 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-rich-black);
+  border-radius: 50%;
+}
+.nav--search {
+  background-color: var(--color-ghost-white);
+  border-radius: 1em;
+  position: relative;
+  margin: 0 10px;
+}
+.nav--search input {
+  border-color: transparent;
+  background-color: transparent;
+  height: 30px;
+  padding: 0 0 0 2em;
+}
+.nav--search input:focus {
+  outline: none;
+}
+.nav--search input::placeholder {
+  color: var(--color-blue-sapphire);
+}
+.nav--search picture {
+  position: absolute;
+  left: 1em;
+  top: calc(50% - (21px / 2));
+}
+.nav--notify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav--notify a {
+  width: 30px;
+  height: 30px;
+}
+.nav--notify a:first-child {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.main--container {
+  padding: 0 15px;
+  margin-bottom: 70px;
+}
+
+/* PRODUCTS */
+.products--container {
+  margin-top: 30px;
+  padding: 10px 10px 50px;
+}
+.products--container .title--container {
+  display: flex;
+  justify-content: space-between;
+}
+.products--container .title--container a {
+  font-weight: 700;
+}
+.products--container .title--container a:hover {
+  color: var(--color-blue-sapphire);
+}
+.products--container .products--items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+.products--container .products--items .item--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.products--container .products--items .item--container a:hover {
+  filter: blur(1px);
+}
+.products--container .products--items .item--container picture {
+  width: 155px;
+  height: 180px;
+  display: block;
+  background-color: var(--color-blue-sapphire);
+  border-radius: 15px;
+}
+.products--container .products--items .item--container h3 {
+  margin-top: 5px;
+  font-weight: 600;
+}
+.products--container .products--items .item--container h4 {
+  font-weight: 200;
+}
+
+/* LOGIN */
+.login--container {
+  margin-top: 30px;
+  padding: 12px 5px;
+}
+.login--container h2 {
+  font-weight: 500;
+  font-size: 24px;
+  padding: 0 15px;
+  text-align: center;
+}
+.login--container .login--actions .login--actions__btn {
+  color: var(--color-ghost-white);
+  background-color: var(--color-cyan-procces);
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 24px;
+  margin-top: 20px;
+}
+.login--container .login--actions .login--actions__btn:hover {
+  color: var(--color-blue-sapphire);
+}
+.login--container .login--actions p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.login--container .login--actions p a {
+  color: var(--color-cyan-procces);
+  font-weight: 600;
+  margin-left: 20px;
+}
+.login--container .login--actions p a:hover {
+  color: var(--color-blue-sapphire);
+}
+
+/* FOOTER */
+.footer--container header {
+  background-color: var(--color-primary);
+  display: flex;
+  border-radius: 10px 10px 0 0;
+  min-width: 100%;
+  max-width: 1200px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+}
+.footer--container header .footer--logo {
+  margin-right: 15px;
+}
+.footer--container header h2 {
+  color: var(--color-ghost-white);
+  font-size: 18px;
+}
+.footer--container main section {
+  display: flex;
+  justify-content: center;
+}
+.footer--container main section:first-child {
+  margin: 25px 0 20px;
+}
+.footer--container main section:nth-child(2) {
+  margin-bottom: 30px;
+}
+.footer--container main section a {
+  margin: 0 25px;
+  font-size: 18px;
+  font-weight: 600;
+}

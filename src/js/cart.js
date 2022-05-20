@@ -1,80 +1,59 @@
 const precioTotal = document.getElementById("precioTotal");
-const cantidadProductos = document.getElementsByClassName("cart-amount--container");
-const Productos = [
-	{ id: 01, nombre: "Adidas", precio: 100000, cantidad: 1 },
-	{ id: 02, nombre: "Reebook", precio: 75600, cantidad: 1 },
-	{ id: 03, nombre: "Puma", precio: 89300, cantidad: 1 },
-];
+const contenedorProductos = document.querySelector(".cart-products--items");
+const tituloProductos = document.getElementById("productsTitle");
+const btnPagar = document.getElementById("btnPay");
 
-alert(
-	"Aquí tienes 3 productos donde podrás ver su precio, ver y cambiar su cantidad y luego podrás ver el resultado total tanto en pantalla como en la consola del navegador"
-);
+function crearProducto(nombre, precio, cantidad) {
+  let contenedor = document.createElement("article");
+  contenedor.className = "cart-item--container box-shadow";
 
-// Suma de precios y visualizacion de los resultados
-function sumarPrecioProductos() {
-	let precioProductos = 0;
-	Productos.forEach((producto) => {
-    if (producto.cantidad > 0) {
-      precioProductos += producto.precio * producto.cantidad;
-      console.table(producto);
-      console.log(`Precio de total de este producto es: $${producto.precio * producto.cantidad}`);
-    }
-	});
-  for (let i = 0; i < cantidadProductos.length; i++) {
-    if (Productos[i].cantidad <= 0) {
-      cantidadProductos[i].innerText = 0;    
-    } else {
-      cantidadProductos[i].innerText = Productos[i].cantidad;
-    }
-  }
-  console.log(`\nEl precio total de todos los productos es: $${precioProductos}`);
-	precioTotal.innerText = precioProductos;
+  let infoProducto = document.createElement("section");
+  infoProducto.className = "cart-item--info";
+
+  let imgContenedor = document.createElement("picture");
+  let imgProducto = document.createElement("img");
+  imgContenedor.append(imgProducto);
+
+  let infoPrecioNombre = document.createElement("section");
+  infoPrecioNombre.className = "cart-item--info__price";
+  let nombreProducto = document.createElement("h3");
+  nombreProducto.innerText = nombre;
+  let precioProducto = document.createElement("h2");
+  precioProducto.innerHTML = `$ <span class="cart-price-item--container">${precio}</span>`;
+  infoPrecioNombre.append(nombreProducto,precioProducto);
+
+  infoProducto.append(imgContenedor,infoPrecioNombre);
+
+  let infoCantidad = document.createElement("section");
+  infoCantidad.className = "cart-item--quantity boc-shadow";
+
+  let btnDisminuir = document.createElement("button");
+  btnDisminuir.className = "cart-icon--decrease";
+  btnDisminuir.innerText = " - ";
+  let cantidadProducto = document.createElement("span");
+  cantidadProducto.className = "cart-amount--container";
+  cantidadProducto.innerText = cantidad;
+  let btnAumentar = document.createElement("button");
+  btnAumentar.className = "cart-icon--add";
+  btnAumentar.innerText = "+";
+
+  infoCantidad.append(btnDisminuir,cantidadProducto,btnAumentar);
+
+  contenedor.append(infoProducto, infoCantidad);
+  contenedorProductos.append(contenedor);
 }
 
-// Verifica que los datos ingresados sean números.
-function verificarValorNumeico() {
-  let mensaje = "";
-  do {
-    mensaje = parseInt(prompt("Porfavor escribe un valor númerico."));
-    if (isNaN(mensaje)) {
-      mensaje = "";
+function informacionProducto() {
+  if(localStorage.getItem("carrito")) {
+    tituloProductos.innerText = "Productos seleccionados";
+    btnPagar.style.display = "block";
+    let producto = JSON.parse(localStorage.getItem("carrito"));
+    for (let i = 0; i < producto.length; i++) {
+      crearProducto(producto[i].nombre, producto[i].precio, producto[i].cantidad);
     }
-  } while (mensaje === "");
-
-  return mensaje;
+  } else {
+    tituloProductos.innerText = "No has seleccionado ningun producto";
+    btnPagar.style.display = "none";
+  }
 }
-
-// Inicio del proceso y muestra en pantalla mensajes al usuario.
-function mensajeCantidadProductos() {
-	let cantidadProducto1 = parseInt(
-		prompt("¿Qué cantidad deseas en el primer producto?")
-	);
-  if (isNaN(cantidadProducto1)) {
-    cantidadProducto1 = verificarValorNumeico();
-    Productos[0].cantidad = cantidadProducto1;
-  } else {
-    Productos[0].cantidad = cantidadProducto1;
-  }
-
-	let cantidadProducto2 = parseInt(
-		prompt("¿Qué cantidad deseas en el segundo producto?")
-	);
-  if (isNaN(cantidadProducto2)) {
-    cantidadProducto2 = verificarValorNumeico();
-    Productos[1].cantidad = cantidadProducto2;
-  } else {
-    Productos[1].cantidad = cantidadProducto2;
-  }
-
-	let cantidadProducto3 = parseInt(
-		prompt("¿Qué cantidad deseas en el tercer producto?")
-	);
-  if (isNaN(cantidadProducto3)) {
-    cantidadProducto3 = verificarValorNumeico();
-    Productos[2].cantidad = cantidadProducto3;
-  } else {
-    Productos[2].cantidad = cantidadProducto3;
-  }
-	sumarPrecioProductos();
-}
-mensajeCantidadProductos();
+informacionProducto();

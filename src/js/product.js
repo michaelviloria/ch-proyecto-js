@@ -1,14 +1,16 @@
 const productoContenedor = document.querySelector(".product--main");
 
+let productoLS = JSON.parse(localStorage.getItem("producto"));
+
 function mostrarProducto() {
   let imgContenedor = document.createElement("picture");
   let img = document.createElement("img");
   imgContenedor.appendChild(img);
   let nombreProducto = document.createElement("h2");
-  nombreProducto.innerText = productos[0].nombre;
+  nombreProducto.innerText = productoLS.nombre;
   nombreProducto.setAttribute("id", "nombreProducto");
   let precioProducto = document.createElement("h4");
-  precioProducto.innerText = "$ " + productos[0].precio;
+  precioProducto.innerText = productoLS.precio;
   precioProducto.setAttribute("id", "precioProducto");
   let cantidadProducto = document.createElement("input");
   cantidadProducto.setAttribute("type", "number");

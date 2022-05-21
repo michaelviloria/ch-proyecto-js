@@ -4,8 +4,7 @@ let productoLS = JSON.parse(localStorage.getItem("producto"));
 
 function mostrarProducto() {
   let imgContenedor = document.createElement("picture");
-  let img = document.createElement("img");
-  imgContenedor.appendChild(img);
+  imgContenedor.innerHTML = `<img src="${productoLS.imagen}" alt="${productoLS.alt}" />`;
   let nombreProducto = document.createElement("h2");
   nombreProducto.innerText = productoLS.nombre;
   nombreProducto.setAttribute("id", "nombreProducto");

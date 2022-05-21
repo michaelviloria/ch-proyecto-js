@@ -23,7 +23,8 @@ function mostrarProductos(marca, numeroContenedor) {
       let imgContenedor = document.createElement("a");
       imgContenedor.setAttribute("href", "./src/section/product.html");
       let imgProducto = document.createElement("picture");
-      imgProducto.innerHTML = `<img src="#" alt="" />`;
+      imgProducto.className = "box-shadow";
+      imgProducto.innerHTML = `<img src="${productos[i].img}" alt="${productos[i].imgAlt}" />`;
       imgContenedor.appendChild(imgProducto);
       let nombreProducto = document.createElement("h3");
       nombreProducto.innerText = productos[i].nombre;
@@ -57,6 +58,8 @@ for (const producto of productoElementos) {
       id: producto.attributes[1].value,
       nombre: producto.children[1].innerText,
       precio: producto.children[2].innerText,
+      imagen: producto.children[0].children[0].children[0].src,
+      alt: producto.children[0].children[0].children[0].alt,
     }
     localStorage.setItem("producto", JSON.stringify(elemento));
   });

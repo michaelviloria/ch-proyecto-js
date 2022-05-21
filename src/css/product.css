@@ -10,12 +10,16 @@
   margin-bottom: 20px;
 }
 .product--container .product--main picture {
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 180px;
+  height: 350px;
   border-radius: 15px;
   background-color: var(--color-blue-sapphire);
   margin-bottom: 5px;
+}
+.product--container .product--main picture img {
+  height: 100%;
 }
 .product--container .product--main h2 {
   font-size: 22px;

@@ -3,7 +3,7 @@ const contenedorProductos = document.querySelector(".cart-products--items");
 const tituloProductos = document.getElementById("productsTitle");
 const btnPagar = document.getElementById("btnPay");
 
-function crearProducto(nombre, precio, cantidad) {
+function crearProducto({nombre, precio, cantidad, imagen, alt}) {
   let contenedor = document.createElement("article");
   contenedor.className = "cart-item--container box-shadow";
 
@@ -11,15 +11,14 @@ function crearProducto(nombre, precio, cantidad) {
   infoProducto.className = "cart-item--info";
 
   let imgContenedor = document.createElement("picture");
-  let imgProducto = document.createElement("img");
-  imgContenedor.append(imgProducto);
+  imgContenedor.innerHTML = `<img src="${imagen}" alt="${alt}"/>`
 
   let infoPrecioNombre = document.createElement("section");
   infoPrecioNombre.className = "cart-item--info__price";
   let nombreProducto = document.createElement("h3");
   nombreProducto.innerText = nombre;
   let precioProducto = document.createElement("h2");
-  precioProducto.innerHTML = `$ <span class="cart-price-item--container">${precio}</span>`;
+  precioProducto.innerHTML = `<span class="cart-price-item--container">${precio}</span>`;
   infoPrecioNombre.append(nombreProducto,precioProducto);
 
   infoProducto.append(imgContenedor,infoPrecioNombre);
@@ -47,9 +46,10 @@ function informacionProducto() {
   if(localStorage.getItem("carrito")) {
     tituloProductos.innerText = "Productos seleccionados";
     btnPagar.style.display = "block";
-    let producto = JSON.parse(localStorage.getItem("carrito"));
+    const producto = JSON.parse(localStorage.getItem("carrito"));
     for (let i = 0; i < producto.length; i++) {
-      crearProducto(producto[i].nombre, producto[i].precio, producto[i].cantidad);
+      console.log(producto);
+      crearProducto(producto[i]);
     }
   } else {
     tituloProductos.innerText = "No has seleccionado ningun producto";

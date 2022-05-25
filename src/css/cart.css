@@ -52,10 +52,13 @@
 }
 .cart-item--info picture {
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   background-color: var(--color-blue-sapphire);
   border-radius: 10px;
+}
+.cart-item--info picture img {
+  width: 100%;
 }
 .cart-item--info__price {
   margin-left: 10px;

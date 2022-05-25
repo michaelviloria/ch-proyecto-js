@@ -20,6 +20,7 @@ function mostrarProductos(marca, numeroContenedor) {
       let producto = document.createElement("article");
       producto.className = "item--container";
       producto.setAttribute("data-id", `${productos[i].id}`);
+      producto.setAttribute("data-cantidad", productos[i].cantidad);
       let imgContenedor = document.createElement("a");
       imgContenedor.setAttribute("href", "./src/section/product.html");
       let imgProducto = document.createElement("picture");
@@ -58,6 +59,7 @@ for (const producto of productoElementos) {
       id: producto.attributes[1].value,
       nombre: producto.children[1].innerText,
       precio: producto.children[2].innerText,
+      cantidad: producto.attributes[2].value,
       imagen: producto.children[0].children[0].children[0].src,
       alt: producto.children[0].children[0].children[0].alt,
     }

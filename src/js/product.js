@@ -33,20 +33,23 @@ btnAgregarCarrito.addEventListener("click", () => {
 
 function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
   const cantidadProducto = document.getElementById("cantidadProducto");
-  let errorMensaje = document.createElement("h4");
-  let exitoContenedor = document.createElement("h4");
-  let exitoMensaje = "Este producto ha sido agregado al carrito, porfavor sigue utilizando nuestros servicos";
 
   if(parseInt(cantidadProducto.value) > parseInt(cantidad)) {
-    errorMensaje.innerText = "Has superado la cantidad maxima del producto";
-    errorMensaje.classList.add("error-message");
-    productoContenedor.append(errorMensaje);
-    // productoContenedor.append(errorMensaje);
+    Swal.fire({
+      title: '¡Cantidad excedida!',
+      text: 'Has superado la cantidad maxima del producto',
+      icon: 'error',
+      confirmButtonText: 'Cerrar',
+      timer: 5000,
+    });
   } else if(cantidadProducto.value <= 0) {
-    errorMensaje.innerText = "No has seleccionado una cantidad para el producto, porfavor selecciona una.";
-    errorMensaje.classList.add("error-message");
-    productoContenedor.append(errorMensaje);
-    // productoContenedor.append(errorMensaje);
+    Swal.fire({
+      title: "¡Sin cantidad!",
+      text: "No has seleccionado una cantidad para el producto, porfavor selecciona una.",
+      icon: "warning",
+      confirmButtonText: "Cerrar",
+      timer: 5000
+    })
   } else {
     if(localStorage.getItem("carrito")) {
       let productosCarrito = JSON.parse(localStorage.getItem("carrito"));
@@ -61,9 +64,13 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
       
       productosCarrito.push(nuevoProducto);
       localStorage.setItem("carrito", JSON.stringify(productosCarrito));
-      exitoContenedor.innerText = exitoMensaje;
-      exitoContenedor.classList.add("success-message");
-      productoContenedor.append(exitoContenedor);
+      Swal.fire({
+        title: "Producto Añadido",
+        text: "Este producto ha sido agregado al carrito, porfavor sigue utilizando nuestros servicos",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        timer: 5000
+      })
     } else {
       let nuevoProducto = [
         {
@@ -78,9 +85,13 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
 
       localStorage.setItem("carrito", JSON.stringify(nuevoProducto));
       
-      exitoContenedor.innerText = exitoMensaje;
-      exitoContenedor.classList.add("success-message");
-      productoContenedor.append(exitoContenedor);
+      Swal.fire({
+        title: "Producto Añadido",
+        text: "Este producto ha sido agregado al carrito, porfavor sigue utilizando nuestros servicos",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        timer: 5000
+      })
     }
   }
 }

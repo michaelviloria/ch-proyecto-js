@@ -7,6 +7,14 @@ class Producto {
     this.marca = marca,
     this.img = img,
     this.imgAlt = imgAlt
+    this.agotado = false;
+  }
+  vendido(cantidadVenta) {
+    if (cantidadVenta < this.cantidad) {
+      this.cantidad -= cantidadVenta;
+    } else if (this.cantidad === 0) {
+      this.agotado = true;
+    }
   }
 }
 

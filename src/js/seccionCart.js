@@ -1,7 +1,25 @@
-const precioTotal = document.getElementById("precioTotal");
-const contenedorProductos = document.querySelector(".cart-products--items");
-const tituloProductos = document.getElementById("productsTitle");
-const btnPagar = document.getElementById("btnPay");
+// Estructura HTML de la seccion "Carrito de compras | Pago de productos"
+function estructuraCart() {
+  app.innerHTML = `
+    <header class="cart-header--container">
+      <h2>Carrito de compras</h2>
+    </header>
+    <main class="cart-main--container">
+      <section class="cart-price--container box-shadow">
+        <h2>Precio Total</h2>
+        <h2>$<span id="precioTotal">0</span></h2>
+      </section>
+      <section class="cart-products--container box-shadow">
+        <h3 id="productsTitle"></h3>
+        <section class="cart-products--items"></section>
+      </section>
+      <section class="cart-buy--container">
+        <button id="btnPay">Pagar</button>
+      </section>
+    </main>
+  `;
+  informacionProducto();
+}
 
 function crearProducto({id, nombre, precio, cantidad, imagen, alt}) {
   let contenedor = document.createElement("article");
@@ -44,10 +62,12 @@ function crearProducto({id, nombre, precio, cantidad, imagen, alt}) {
   infoCantidad.append(btnDisminuir,cantidadProducto,btnAumentar);
 
   contenedor.append(infoProducto, infoCantidad, btnCerrar);
-  contenedorProductos.append(contenedor);
+  app.append(contenedor);
 }
 
 function informacionProducto() {
+  const tituloProductos = document.getElementById("productsTitle");
+  const btnPagar = document.getElementById("btnPay");
   if(localStorage.getItem("carrito")) {
     tituloProductos.innerText = "Productos seleccionados";
     btnPagar.style.display = "block";
@@ -60,7 +80,6 @@ function informacionProducto() {
     btnPagar.style.display = "none";
   }
 }
-informacionProducto();
 
 const contenedorProducto = document.querySelectorAll(".cart-item--container");
 
@@ -96,17 +115,17 @@ for (const producto of contenedorProducto) {
   })
 }
 
-btnPagar.addEventListener("click", () => {
-  Swal.fire({
-    title: "Productos comprados",
-    text: "Todos los productos en tu lista han sido comprados, gracias por usar nuestros servicios.",
-    icon: "success",
-    confirmButtonText: "Aceptar",
-    timer: 10000
-  })
-  for (const producto of contenedorProducto) {
-    producto.remove();
-  }
-  localStorage.clear();
-  informacionProducto();
-})
+// btnPagar.addEventListener("click", () => {
+//   Swal.fire({
+//     title: "Productos comprados",
+//     text: "Todos los productos en tu lista han sido comprados, gracias por usar nuestros servicios.",
+//     icon: "success",
+//     confirmButtonText: "Aceptar",
+//     timer: 10000
+//   })
+//   for (const producto of contenedorProducto) {
+//     producto.remove();
+//   }
+//   localStorage.clear();
+//   informacionProducto();
+// })

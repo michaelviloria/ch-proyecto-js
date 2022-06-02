@@ -1,0 +1,188 @@
+[
+	{
+		"id": 1,
+		"nombre": "Nike Air Max Excee",
+		"precio": 304900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/dgDnpWs/Nike-Air-Max-Excee.png",
+		"imgAlt": "Nike Air Max Excee"
+	},
+	{
+		"id": 2,
+		"nombre": "Nike Quest 4",
+		"precio": 402900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/SQDx5mD/Nike-Quest-4.png",
+		"imgAlt": "Nike Quest 4"
+	},
+	{
+		"id": 3,
+		"nombre": "Nike Court Royale 2 NN",
+		"precio": 272900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/2v0M49b/Nike-Court-Royale-2-NN.png",
+		"imgAlt": "Nike Court Royale 2 NN"
+	},
+	{
+		"id": 4,
+		"nombre": "Nike Revolucion 6NN",
+		"precio": 337900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/M8Hrq3T/Nike-Revolucion-6-NN.png",
+		"imgAlt": "Nike Revolucion 6 NN"
+	},
+	{
+		"id": 5,
+		"nombre": "Nike Air Max SC",
+		"precio": 421900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/612rq31/Nike-Air-Max-SC.png",
+		"imgAlt": "Nike Air Max SC"
+	},
+	{
+		"id": 6,
+		"nombre": "Nike Court Vision Low",
+		"precio": 284900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/kVLZJvh/Nike-Court-Vision-Low.png",
+		"imgAlt": "Nike Court Vision Low"
+	},
+	{
+		"id": 7,
+		"nombre": "Nike Court Vision Low NBA",
+		"precio": 315900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/N2jPpKd/Nike-Court-Vision-Low-NBA.png",
+		"imgAlt": "Nike Court Vision Low NBA"
+	},
+	{
+		"id": 8,
+		"nombre": "Nike SB Chron 2",
+		"precio": 305900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/ZxcXTZ7/Nike-SB-Chron-2.png",
+		"imgAlt": "Nike SB Chron 2"
+	},
+	{
+		"id": 9,
+		"nombre": "Nike Jordan Stay Loyal",
+		"precio": 593900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/QD4FCsg/Nike-Jordan-Stay-Loyal.png",
+		"imgAlt": "Nike Jordan Stay Loyal"
+	},
+	{
+		"id": 10,
+		"nombre": "Nike Flex Experience Run 10",
+		"precio": 262900,
+		"cantidad": 15,
+		"marca": "nike",
+		"img": "https://i.ibb.co/5hptnhL/Nike-Flex-Experience-Run-10.png",
+		"imgAlt": "Nike Flex Experience Run 10"
+	},
+	{
+		"id": 11,
+		"nombre": "Puma Future Rider Play On",
+		"precio": 343900,
+		"cantidad": 15,
+		"marca": "puma",
+		"img": "https://i.ibb.co/Bykvzs7/Puma-Future-Rider-Play-On.webp",
+		"imgAlt": "Puma Future Rider Play On"
+	},
+	{
+		"id": 12,
+		"nombre": "Puma Rs-X Softcas",
+		"precio": 287900,
+		"cantidad": 15,
+		"marca": "puma",
+		"img": "https://i.ibb.co/g3rXNFb/Puma-Rs-X-Softcas.png",
+		"imgAlt": "Puma Rs-X Softcas"
+	},
+	{
+		"id": 13,
+		"nombre": "Puma Future Rider",
+		"precio": 622200,
+		"cantidad": 15,
+		"marca": "puma",
+		"img": "https://i.ibb.co/Wn1YTMC/Puma-Future-Rider.png",
+		"imgAlt": "Puma Future Rider"
+	},
+	{
+		"id": 14,
+		"nombre": "Puma Gravition Pro",
+		"precio": 352900,
+		"cantidad": 15,
+		"marca": "puma",
+		"img": "https://i.ibb.co/2KLQHYP/Puma-Gravition-Pro.png",
+		"imgAlt": "Puma Gravition Pro"
+	},
+	{
+		"id": 15,
+		"nombre": "Puma X-Ray Lite",
+		"precio": 278900,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 16,
+		"nombre": "Puma Scuderia Ferrari Race X-Ray 2",
+		"precio": 231900,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 17,
+		"nombre": "Puma Incinerate Wns D12",
+		"precio": 269900,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 18,
+		"nombre": "Puma ST Runner v2",
+		"precio": 245900,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 19,
+		"nombre": "Puma Supertec",
+		"precio": 540450,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 20,
+		"nombre": "Puma City Rider",
+		"precio": 393900,
+		"cantidad": 15,
+		"marca": "puma"
+	},
+	{
+		"id": 21,
+		"nombre": "Adidas Alphatorsion 2",
+		"precio": 189900,
+		"cantidad": 15,
+		"marca": "adidas",
+		"img": "https://i.ibb.co/GxYxMBQ/Adidas-Alphatorsion-2.png",
+		"imgAlt": "Adidas Alphatorsion 2"
+	},
+	{
+		"id": 22,
+		"nombre": "Adidas Racer Rebold",
+		"precio": 189900,
+		"cantidad": 15,
+		"marca": "adidas",
+		"img": "https://i.ibb.co/0n6cC8d/Adidas-Racer-Rebold.png",
+		"imgAlt": "Adidas Racer Rebold"
+	}
+]

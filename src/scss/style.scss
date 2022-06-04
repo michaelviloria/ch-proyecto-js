@@ -1,0 +1,228 @@
+@import "./variables";
+@import "./cart";
+@import "./product";
+@import "./products";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: $color-secondary;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+h3 {
+  color: $color-primary;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+h4 {
+  color: $color-secondary;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.box-shadow {
+  box-shadow: 1px 1px 10px $color-secondary;
+  border-radius: 10px;
+}
+
+/* NAV HADER */
+.nav--container {
+  background-color: $color-white;
+  width: 100%;
+  padding: 1em 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: $color-primary;
+  border-radius: 50%;
+}
+.nav--search {
+  background-color: $color-purple;
+  border-radius: 1em;
+  position: relative;
+  margin: 0 10px;
+
+  input {
+    border-color: transparent;
+    background-color: transparent;
+    height: 30px;
+    padding: 0 0 0 2em;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $color-primary;
+    }
+  }
+
+  picture {
+    position: absolute;
+    left: 1em;
+    top: calc(50% - (21px / 2));
+  }
+}
+.nav--notify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.main--container {
+  padding: 0 15px;
+  margin-bottom: 70px;
+}
+
+/* PRODUCTS */
+.products--container {
+  margin-top: 30px;
+  padding: 10px 10px 50px;
+  .title--container {
+    display: flex;
+    justify-content: space-between;
+    a {
+      &:hover {
+        color: $color-purple;
+      }
+    }
+  }
+  .products--items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 24px;
+    .item--container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      a {
+        &:hover {
+          filter: blur(1px);
+        }
+      }
+      .btn-image--item {
+        background: none;
+        border: none;
+      }
+      picture {
+        width: 220px;
+        height: 200px;
+        display: block;
+        border-radius: 15px;
+        img {
+          width: 100%;
+        }
+      }
+      h3 {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+/* LOGIN */
+.login--container {
+  margin: 30px 0;
+  padding: 12px 5px;
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    padding: 0 15px;
+    text-align: center;
+  }
+  .login--actions {
+    .login--actions__btn {
+      color: $color-white;
+      background-color: $color-purple;
+      width: 100%;
+      display: block;
+      padding: 10px 0;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 24px;
+      margin-top: 20px;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+    p {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      a {
+        color: $color-primary;
+        font-weight: 600;
+        margin-left: 20px;
+        &:hover {
+          color: $color-purple;
+        }
+      }
+    }
+  }
+}
+
+/* FOOTER */
+.footer--container  {
+  header {
+    background-color: $color-primary;
+    display: flex;
+    border-radius: 10px 10px 0 0;
+    min-width: 100%;
+    max-width: 1200px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    .footer--logo {
+      margin-right: 15px;
+    }
+    h2 {
+      color: $color-white;
+      font-size: 18px;
+    }
+  }
+  main {
+    section {
+      display: flex;
+      justify-content: center;
+      &:first-child {
+        margin: 25px 0 20px;
+      }
+      &:nth-child(2) {
+        margin-bottom: 30px;
+      }
+      a {
+        margin: 0 25px;
+        font-size: 18px;
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -65,6 +65,9 @@ function estructuraInicio() {
   // Evento de click para ir a la seccion del carrito de compras
   const btnCart = document.getElementById("btnCart");
   btnCart.addEventListener("click", () => {estructuraCart()});
+  mostrarProductos("nike");
+  mostrarProductos("puma");
+  mostrarProductos("adidas");
 }
 
 // Tarjetas / Cards de los productos dentro de su propio contenedor dependiendo su marca
@@ -102,11 +105,16 @@ function mostrarProductos(marca) {
   contenedorProductos.innerHTML = `
     <section class="title--container">
       <h3>${marca}</h3>
-      <a href="./src/section/products.html">Mostrar todo</a>
+      <button class="btnMostrarProductos">Mostrar todo</button>
     </section>
     <section class="products--items">${producto}</section>
   `;
   contenedorPrincipal.insertBefore(contenedorProductos, contenedorLogin);
+
+  const btnMostrarProductos = document.querySelectorAll(".btnMostrarProductos");
+  for (const btn of btnMostrarProductos) {
+    btn.addEventListener("click", () => {estructuraProductos()});
+  }
 
   // Funcion guardar producto seleccionado en el Local Storage
   agregarProductoLS();
@@ -131,5 +139,3 @@ function agregarProductoLS() {
     });
   }
 }
-
-estructuraInicio();

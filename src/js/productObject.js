@@ -29,8 +29,6 @@ async function traerProductos() {
   }
 
   // Renderiza los productos en pantalla segun su marca
-  mostrarProductos("nike");
-  mostrarProductos("puma");
-  mostrarProductos("adidas");
+  estructuraInicio();
 }
 traerProductos();

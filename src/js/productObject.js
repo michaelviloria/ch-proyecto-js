@@ -29,6 +29,6 @@ async function traerProductos() {
   }
 
   // Renderiza los productos en pantalla segun su marca
-  estructuraInicio();
+  estructuraHeader();
 }
 traerProductos();

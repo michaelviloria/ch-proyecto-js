@@ -1,36 +1,6 @@
 // Estructura HTML de la seccion "Producto Seleccionado"
 function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
   app.innerHTML = `
-    <header>
-      <nav class="nav--container">
-        <button id="btnRegresar">
-          <picture class="nav--back">
-            <img src="./src/img/icons/icon-arrow-back.png" alt="" />
-          </picture>
-        </button>
-        <section class="nav--search">
-          <input type="text" placeholder="Busca lo que desees" />
-          <a href="#">
-            <picture>
-              <img src="./src/img/icons/icon-search.png" alt="icon search" />
-            </picture>
-          </a>
-        </section>
-        <section class="nav--notify">
-          <button id="btnCart">
-						<picture>
-							<img src="./src/img/icons/icon-cart.png" alt="icon cart" />
-						</picture>
-					</button>
-          <a href="">
-            <picture>
-              <img src="./src/img/icons/icon-menu.png" alt="icon menu" />
-            </picture>
-          </a>
-        </section>
-      </nav>
-    </header>
-
     <main class="main--container">
       <section class="product--container box-shadow">
         <section class="product--main">
@@ -46,20 +16,27 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
     </main>
 
     <footer class="footer--product">
-      <a href="#">Volver</a>
+      <button id="btnBack">Volver</button>
       <button id="btnAgregarCarrito">Agregar al carrito</button>
     </footer>
   `;
 
-  // Evento de click para ir a la seccion del carrito de compras
-  const btnCart = document.getElementById("btnCart");
-  btnCart.addEventListener("click", () => {estructuraCart()});
+  const btnBack = document.getElementById("btnBack");
+  btnBack.addEventListener("click", () => {estructuraInicio()});
 
   const btnAgregarCarrito = document.getElementById("btnAgregarCarrito");
   let productoLS = JSON.parse(localStorage.getItem("producto"));
   btnAgregarCarrito.addEventListener("click", () => {
     agregarCarrito(productoLS);
   });
+
+  const menuList = document.getElementById("menuList");
+  const menuItems = menuList.querySelectorAll(".menu-item");
+  for (const item of menuItems) {
+    item.classList.remove("selected");
+  }
+
+  cargarSeccionActual("producto");
 }
 
 // Agrega toda la informacion del producto para ser agregado en la seccion del carrito de compras

@@ -2,7 +2,8 @@
 .cart-header--container {
   display: flex;
   padding: 18px 20px;
-  background-color: $color-primary;
+  background-color: $color-purple;
+  color: $color-white;
   h2 {
     text-align: center;
     width: 100%;
@@ -12,104 +13,94 @@
 /* MAIN */
 .cart-main--container {
   padding: 10px 15px 0;
-}
-
-/* BOX-SHADOW */
-.cart-price--container,
-.cart-products--container {
-  box-shadow: 1px 1px 10px $color-secondary;
-  border-radius: 10px;
-}
-
-/* PRICE */
-.cart-price--container {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  h2, span {
-    font-size: 20px;
-    font-weight: 600;
-  }
-}
-
-/* PRODUCTS */
-.cart-products--container {
-  padding: 15px;
-  margin-top: 15px;
-}
-.cart-item--container {
-  margin: 20px 0;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.cart-item--info {
-  display: flex;
-  align-items: center;
-  picture {
-    display: block;
-    width: 100px;
-    height: 100px;
-    background-color: $color-primary;
-    border-radius: 10px;
-    img {
-      width: 100%;
-    }
-  }
-}
-.cart-item--info__price {
-  margin-left: 10px;
-  h3 {
-    font-size: 18px;
-    font-weight: 500;
-  }
-  span {
-    font-size: 15px;
-    font-weight: 400;
-  }
-}
-
-.cart-item--quantity {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px;
-  width: fit-content;
-  height: fit-content;
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    margin: 0 8px;
-    min-height: 26px;
-    &:first-child, picture:first-child {
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-.cart-icon--close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.cart-buy--container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 0;
-  a {
+  .cart-price--container {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
-    background-color: $color-primary;
-    font-size: 18px;
-    font-weight: 600;
-    color: $color-white;
-    border-radius: 10px;
+    h2, span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .cart-products--container {
+    padding: 15px;
+    margin-top: 15px;
+    .cart-products--items {
+      .cart-item--container {
+        margin: 20px 0;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        position: relative;
+        .cart-item--info {
+          display: flex;
+          align-items: center;
+          picture {
+            display: block;
+            width: 100px;
+            border-radius: 10px;
+            img {
+              width: 100%;
+            }
+          }
+          .cart-item--info__price {
+            margin-left: 10px;
+            h3 {
+              font-size: 18px;
+              font-weight: 500;
+            }
+            span {
+              font-size: 15px;
+              font-weight: 400;
+            }
+          }
+        }
+        .cart-item--quantity {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4px;
+          width: fit-content;
+          height: fit-content;
+          button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin: 0 8px;
+            font-size: 20px;
+            &:first-child, picture:first-child {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+        .cart-icon--close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .cart-buy--container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0;
+    button {
+      padding: 10px;
+      background-color: $color-purple;
+      border: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: $color-white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
   }
 }

@@ -3,46 +3,16 @@ const app = document.querySelector("#app");
 // Estructura HTML de la seccion de Inicio / Home
 function estructuraInicio() {
   app.innerHTML = `
-    <header>
-			<nav class="nav--container">
-				<a href="#" id="logoNav">
-					<picture class="nav--logo logo">
-						<img src="#" alt="" />
-					</picture>
-				</a>
-				<section class="nav--search">
-					<input type="text" placeholder="Busca lo que desees" />
-					<a href="#">
-						<picture>
-							<img src="./src/img/icons/icon-search.png" alt="icon search" />
-						</picture>
-					</a>
-				</section>
-				<section class="nav--notify">
-					<button id="btnCart">
-						<picture>
-							<img src="./src/img/icons/icon-cart.png" alt="icon cart" />
-						</picture>
-					</button>
-					<a href="#">
-						<picture>
-							<img src="./src/img/icons/icon-menu.png" alt="icon menu" />
-						</picture>
-					</a>
-				</section>
-			</nav>
-		</header>
-
     <main class="main--container">
-      <section class="login--container box-shadow">
+      <section id="loginSection" class="login--container box-shadow">
         <h2>¡Crea una cuenta y mejora tu experiencia!</h2>
         <div class="login--actions">
-          <a href="#" class="login--actions__btn">Crear cuenta</a>
-          <p>¿Ya tienes una cuenta? <a href="#">Ingresar</a></p>
+          <a href="#loginSection" class="login--actions__btn">Crear cuenta</a>
+          <p>¿Ya tienes una cuenta? <a href="#loginSection">Ingresar</a></p>
         </div>
       </section>
     </main>
-    <footer class="footer--container">
+    <footer id="footerSection" class="footer--container box-shadow">
       <header>
         <picture class="footer--logo logo">
           <img src="" alt="" />
@@ -51,23 +21,23 @@ function estructuraInicio() {
       </header>
       <main>
         <section>
-          <a href="#">Mi cuenta</a>
-          <a href="#">Mis compras</a>
+          <a href="#footerSection">Mi cuenta</a>
+          <a href="#footerSection">Mis compras</a>
         </section>
         <section>
-          <a href="#">Categorias</a>
-          <a href="#">Mis favoritos</a>
+          <a href="#footerSection">Categorias</a>
+          <a href="#footerSection">Mis favoritos</a>
         </section>
       </main>
     </footer>
   `;
 
   // Evento de click para ir a la seccion del carrito de compras
-  const btnCart = document.getElementById("btnCart");
-  btnCart.addEventListener("click", () => {estructuraCart()});
   mostrarProductos("nike");
-  mostrarProductos("puma");
   mostrarProductos("adidas");
+  mostrarProductos("puma");
+
+  cargarSeccionActual("inicio");
 }
 
 // Tarjetas / Cards de los productos dentro de su propio contenedor dependiendo su marca

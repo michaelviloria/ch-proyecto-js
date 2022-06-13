@@ -18,7 +18,7 @@ function estructuraProductos() {
   mostrarTodosProductos("adidas");
   mostrarTodosProductos("puma");
 
-  cargarSeccionActual("productos");
+  guardarSeccionActual("productos");
 }
 
 function mostrarTodosProductos(marca) {

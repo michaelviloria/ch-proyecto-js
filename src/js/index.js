@@ -37,7 +37,7 @@ function estructuraInicio() {
   mostrarProductos("adidas");
   mostrarProductos("puma");
 
-  cargarSeccionActual("inicio");
+  guardarSeccionActual("inicio");
 }
 
 // Tarjetas / Cards de los productos dentro de su propio contenedor dependiendo su marca

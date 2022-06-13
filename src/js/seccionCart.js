@@ -26,7 +26,7 @@ function estructuraCart() {
     item.classList.remove("selected");
   }
 
-  cargarSeccionActual("cart");
+  guardarSeccionActual("cart");
 }
 
 function crearProducto({id, nombre, precio, cantidad, imagen, alt}) {

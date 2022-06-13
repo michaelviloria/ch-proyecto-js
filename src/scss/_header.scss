@@ -1,0 +1,89 @@
+#header {
+  width: clamp(250px, 100%, 1200px);
+  margin: auto;
+  position: sticky;
+  top: 0;
+  .nav--container {
+    background-color: $color-white;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .nav--menu {
+      .menu--btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .menu--list {
+        display: none;
+        position: absolute;
+        width: clamp(210px, 100%, 1200px);
+        left: 0;
+        background-color: $color-purple;
+        padding: 20px;
+        ul {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          li {
+            list-style: none;
+            margin: 10px;
+            font-size: 18px;
+            color: $color-white;
+            cursor: pointer;
+            &:hover {
+              text-decoration: underline;
+            }
+            &.selected {
+              cursor: not-allowed;
+              color: $color-secondary;
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav--search {
+      background-color: $color-white;
+      border: 2px solid $color-purple;
+      border-radius: 1em;
+    
+      input {
+        border-color: transparent;
+        background-color: transparent;
+        height: 30px;
+        padding: 0 0 0 1em;
+        color: $color-secondary;
+    
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $color-secondary;
+        }
+      }
+    }
+    .nav--cart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    
+      button {
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

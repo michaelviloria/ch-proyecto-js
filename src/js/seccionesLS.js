@@ -11,16 +11,17 @@ function cargarSeccionActual() {
       estructuraInicio();
       break;
     case "productos":
-      estructuraProductos();
+        estructuraProductos();
       break;
     case "cart":
-      estructuraCart();
+        estructuraCart();
       break;
     case "producto":
       const producto = JSON.parse(localStorage.getItem("producto"));
       esructuraSeccionProducto(producto);
       break;
     default:
+      estructuraInicio();
       break;
   }
 }

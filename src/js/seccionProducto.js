@@ -36,7 +36,7 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
     item.classList.remove("selected");
   }
 
-  cargarSeccionActual("producto");
+  guardarSeccionActual("producto");
 }
 
 // Agrega toda la informacion del producto para ser agregado en la seccion del carrito de compras

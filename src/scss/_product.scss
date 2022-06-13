@@ -82,11 +82,21 @@
       background-color: $color-white;
       border: 1px solid $color-secondary;
       color: $color-secondary;
+      &:hover {
+        border: 1px solid $color-purple;
+        background-color: $color-purple;
+        color: $color-white;
+      }
     }
     &#btnAgregarCarrito {
       background-color: $color-purple;
       border: none;
       color: $color-white;
+      &:hover {
+        background-color: $color-white;
+        border: 1px solid $color-secondary;
+        color: $color-secondary;
+      }
     }
   }
 }

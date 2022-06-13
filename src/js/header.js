@@ -21,12 +21,7 @@ function estructuraHeader() {
       </section>
     </section>
     <section class="nav--search">
-      <input type="text" placeholder="Busca lo que desees" />
-      <button id="nav-icon--search">
-        <picture>
-          <img src="./src/img/icons/icon-search.png" alt="icon search" />
-        </picture>
-      </button>
+      <input type="search" placeholder="Buscar...." id="inputSearch" />
     </section>
     <section class="nav--cart">
       <button id="btnCart">
@@ -65,6 +60,9 @@ function estructuraHeader() {
     estructuraCart();
     guardarSeccionActual("cart");
   });
+
+  const inputSearch = document.getElementById("inputSearch");
+  inputSearch.addEventListener("keyup", filtroBusqueda);
 
   cargarSeccionActual();
 }

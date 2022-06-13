@@ -1,7 +1,6 @@
 function filtroBusqueda(e) {
-  console.log(e.target.value);
   if (e.target.value != "") {
-    resultadoFiltro(e.target.value);
+    resultadoFiltro(e.target.value.toLowerCase());
   } else {
     cargarSeccionActual();
   }
@@ -25,7 +24,6 @@ function resultadoFiltro(busqueda) {
       `;
       productosEncontrados++;
     }
-    console.log(productos[i].nombre.toLowerCase().includes(busqueda));
   }
   if (productosEncontrados > 0) {
     app.innerHTML = `

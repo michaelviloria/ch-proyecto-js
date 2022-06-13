@@ -8,7 +8,7 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
             <img src="${imagen}" alt="${alt}" />
           </picture>
           <h2 id="nombreProducto">${nombre}</h2>
-          <h4 id="precioProducto">${precio}</h4>
+          <h4 id="precioProducto">$ <span>${precio}</span></h4>
           <input type="number" value="1" id="cantidadProducto"/>
           <h4>Cantidad disponible para este producto es: ${cantidad}<h4/>
         </section>
@@ -25,9 +25,8 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
   btnBack.addEventListener("click", () => {estructuraInicio()});
 
   const btnAgregarCarrito = document.getElementById("btnAgregarCarrito");
-  let productoLS = JSON.parse(localStorage.getItem("producto"));
   btnAgregarCarrito.addEventListener("click", () => {
-    agregarCarrito(productoLS);
+    agregarCarrito({nombre, precio, cantidad, imagen, alt});
   });
 
   const menuList = document.getElementById("menuList");
@@ -42,6 +41,7 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
 // Agrega toda la informacion del producto para ser agregado en la seccion del carrito de compras
 function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
   const cantidadProducto = document.getElementById("cantidadProducto");
+  const productosCarrito = JSON.parse(localStorage.getItem("carrito"));
 
   if(parseInt(cantidadProducto.value) > parseInt(cantidad)) {
     Swal.fire({
@@ -61,25 +61,53 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
     })
   } else {
     if(localStorage.getItem("carrito")) {
-      let productosCarrito = JSON.parse(localStorage.getItem("carrito"));
-      let nuevoProducto = {
-        id: productosCarrito.length + 1,
-        nombre: nombre,
-        cantidad: parseInt(cantidadProducto.value),
-        precio: precio,
-        imagen: imagen,
-        alt: alt
-      };
-      
-      productosCarrito.push(nuevoProducto);
-      localStorage.setItem("carrito", JSON.stringify(productosCarrito));
-      Swal.fire({
-        title: "Producto Añadido",
-        text: "Este producto ha sido agregado al carrito, porfavor sigue utilizando nuestros servicos",
-        icon: "success",
-        confirmButtonText: "Aceptar",
-        timer: 5000
-      })
+      for (let i = 0; i < productosCarrito.length; i++) {
+        if (productosCarrito[i].nombre.includes(nombre)) {
+          Swal.fire({
+            title: "Advertencia",
+            text: "Este producto ya ha sido agregado al carrito ¿Deseas editarlo?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, seguro",
+            cancelButtonText: "No, no quiero."
+          }).then(result => {
+            if (result.isConfirmed === true) {
+              // console.log("producto editado");
+              console.log(productosCarrito[i]);
+              productosCarrito[i].cantidad = parseInt(cantidadProducto.value);
+              
+              localStorage.setItem("carrito", JSON.stringify(productosCarrito));
+              Swal.fire({
+                title: "Producto Editado",
+                text: "Este producto ha sido editado, porfavor sigue utilizando nuestros servicos",
+                icon: "success",
+                confirmButtonText: "Aceptar",
+                timer: 5000
+              });
+            }
+          })
+        } else {
+          let nuevoProducto = {
+            id: productosCarrito.length + 1,
+            nombre: nombre,
+            cantidad: parseInt(cantidadProducto.value),
+            precio: precio,
+            imagen: imagen,
+            alt: alt,
+            cantidadMaxima: cantidad
+          };
+          
+          productosCarrito.push(nuevoProducto);
+          localStorage.setItem("carrito", JSON.stringify(productosCarrito));
+          Swal.fire({
+            title: "Producto Añadido",
+            text: "Este producto ha sido agregado al carrito, porfavor sigue utilizando nuestros servicos",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+            timer: 5000
+          })
+        }
+      }
     } else {
       let nuevoProducto = [
         {
@@ -88,7 +116,8 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
           cantidad: parseInt(cantidadProducto.value),
           precio: precio,
           imagen: imagen,
-          alt: alt
+          alt: alt,
+          cantidadMaxima: cantidad
         }
       ];
 

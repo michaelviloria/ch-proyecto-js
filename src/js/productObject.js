@@ -11,10 +11,8 @@ class Producto {
     this.agotado = false;
   }
   vendido(cantidadVenta) {
-    if (cantidadVenta < this.cantidad) {
+    if (cantidadVenta <= this.cantidad) {
       this.cantidad -= cantidadVenta;
-    } else if (this.cantidad === 0) {
-      this.agotado = true;
     }
   }
 }

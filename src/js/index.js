@@ -58,7 +58,7 @@ function mostrarProductos(marca) {
             </picture>
           </button>
           <h3>${productos[i].nombre}</h3>
-          <h4>$ ${productos[i].precio}</h4>
+          <h4>$ <span>${productos[i].precio}</span></h4>
         </article>
       `;
       if (numeroElementosCreados >= 4) {
@@ -99,12 +99,11 @@ function agregarProductoLS() {
       let elemento = {
         id: producto.attributes[1].value,
         nombre: producto.children[1].innerText,
-        precio: producto.children[2].innerText,
+        precio: producto.children[2].children[0].innerText,
         cantidad: producto.attributes[2].value,
         imagen: producto.children[0].children[0].children[0].src,
         alt: producto.children[0].children[0].children[0].alt,
       }
-      localStorage.setItem("producto", JSON.stringify(elemento));
       esructuraSeccionProducto(elemento);
     });
   }

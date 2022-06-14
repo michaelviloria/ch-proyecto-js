@@ -104,6 +104,7 @@ function agregarProductoLS() {
         imagen: producto.children[0].children[0].children[0].src,
         alt: producto.children[0].children[0].children[0].alt,
       }
+      localStorage.setItem("producto", JSON.stringify(elemento));
       esructuraSeccionProducto(elemento);
     });
   }

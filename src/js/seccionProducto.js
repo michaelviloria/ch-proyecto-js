@@ -72,8 +72,6 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
             cancelButtonText: "No, no quiero."
           }).then(result => {
             if (result.isConfirmed === true) {
-              // console.log("producto editado");
-              console.log(productosCarrito[i]);
               productosCarrito[i].cantidad = parseInt(cantidadProducto.value);
               
               localStorage.setItem("carrito", JSON.stringify(productosCarrito));

@@ -40,10 +40,10 @@ function esructuraSeccionProducto({nombre, precio, cantidad, imagen, alt}) {
 
 // Agrega toda la informacion del producto para ser agregado en la seccion del carrito de compras
 function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
-  const cantidadProducto = document.getElementById("cantidadProducto");
+  const cantidadProducto = parseInt(document.getElementById("cantidadProducto").value);
   const productosCarrito = JSON.parse(localStorage.getItem("carrito"));
 
-  if(parseInt(cantidadProducto.value) > parseInt(cantidad)) {
+  if(cantidadProducto > parseInt(cantidad)) {
     Swal.fire({
       title: '¡Cantidad excedida!',
       text: 'Has superado la cantidad maxima del producto',
@@ -51,7 +51,7 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
       confirmButtonText: 'Cerrar',
       timer: 5000,
     });
-  } else if(cantidadProducto.value <= 0) {
+  } else if(cantidadProducto <= 0) {
     Swal.fire({
       title: "¡Sin cantidad!",
       text: "No has seleccionado una cantidad para el producto, porfavor selecciona una.",
@@ -72,7 +72,7 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
             cancelButtonText: "No, no quiero."
           }).then(result => {
             if (result.isConfirmed === true) {
-              productosCarrito[i].cantidad = parseInt(cantidadProducto.value);
+              productosCarrito[i].cantidad = cantidadProducto;
               
               localStorage.setItem("carrito", JSON.stringify(productosCarrito));
               Swal.fire({
@@ -83,12 +83,13 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
                 timer: 5000
               });
             }
-          })
+          });
+          break;
         } else {
           let nuevoProducto = {
             id: productosCarrito.length + 1,
             nombre: nombre,
-            cantidad: parseInt(cantidadProducto.value),
+            cantidad: cantidadProducto,
             precio: precio,
             imagen: imagen,
             alt: alt,
@@ -103,7 +104,8 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
             icon: "success",
             confirmButtonText: "Aceptar",
             timer: 5000
-          })
+          });
+          break;
         }
       }
     } else {

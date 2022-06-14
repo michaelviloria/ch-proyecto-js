@@ -96,7 +96,7 @@ function mostrarProductos(marca) {
 function agregarProductoLS() {
   const productoElementos = document.querySelectorAll(".item--container");
   for (const producto of productoElementos) {
-    const btnImgElemento = producto.children[0];
+    let btnImgElemento = producto.children[0];
     btnImgElemento.addEventListener("click", () => {
       let elemento = {
         id: producto.attributes[1].value,

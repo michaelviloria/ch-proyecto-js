@@ -33,6 +33,7 @@
         justify-content: space-between;
         align-items: end;
         position: relative;
+        z-index: -1;
         .cart-item--info {
           display: flex;
           align-items: center;

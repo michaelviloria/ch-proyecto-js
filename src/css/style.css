@@ -35,6 +35,7 @@
   left: 0;
   background-color: #9ba3eb;
   padding: 20px;
+  z-index: 0;
 }
 
 #header .nav--container .nav--menu .menu--list ul {
@@ -188,6 +189,7 @@
       -ms-flex-align: end;
           align-items: end;
   position: relative;
+  z-index: -1;
 }
 
 .cart-main--container .cart-products--container .cart-products--items .cart-item--container .cart-item--info {

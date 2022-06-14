@@ -1,8 +1,8 @@
-
+// Guarda en el Local Storage la sección actual de la página
 function guardarSeccionActual(seccionActual) {
   localStorage.setItem("seccion", seccionActual);
 }
-
+// Carga la seccion actual guardada en el Local Storage
 function cargarSeccionActual() {
   const seccionActual = localStorage.getItem("seccion");
 
@@ -17,6 +17,7 @@ function cargarSeccionActual() {
         estructuraCart();
       break;
     case "producto":
+      // Trae un objeto del Local Storage para usar su informacion para el renderizado.
       const producto = JSON.parse(localStorage.getItem("producto"));
       esructuraSeccionProducto(producto);
       break;

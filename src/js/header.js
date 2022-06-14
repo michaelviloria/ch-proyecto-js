@@ -38,12 +38,31 @@ function estructuraHeader() {
   btnMenu.addEventListener("click", menuToggle);
 
   const menuItems = menuList.querySelectorAll(".menu-item");
-  for (const item of menuItems) {
-    const dataSection = item.attributes.getNamedItem("data-section");
-    item.addEventListener("click", () => {
+  for (const elemento of menuItems) {
+    const dataSection = elemento.attributes.getNamedItem("data-section").value;
+    elemento.addEventListener("click", () => {
       cambiarSeccion(dataSection);
-      menuToggle();
     })
+  }
+
+  function cambiarSeccion(seccion) {
+    for (const elemento of menuItems) {
+      const elementoSeccion = elemento.attributes.getNamedItem("data-section").value;
+      if (elementoSeccion === seccion) {
+        elemento.classList.add("selected");
+        if (elementoSeccion === "inicio") {
+          estructuraInicio();
+          guardarSeccionActual("inicio");
+          menuToggle();
+        } else if (elementoSeccion === "productos") {
+          estructuraProductos();
+          guardarSeccionActual("productos");
+          menuToggle();
+        }
+      } else {
+        elemento.classList.remove("selected");
+      }
+    }
   }
 
   function menuToggle() {
@@ -65,23 +84,4 @@ function estructuraHeader() {
   inputSearch.addEventListener("keyup", filtroBusqueda);
 
   cargarSeccionActual();
-}
-
-function cambiarSeccion({value}) {
-  const menuItems = menuList.querySelectorAll(".menu-item");
-  for (const item of menuItems) {
-    const dataSection = item.attributes.getNamedItem("data-section");
-    if (dataSection.value === value) {
-      item.classList.add("selected");
-      if (value === "productos") {
-        estructuraProductos();
-        guardarSeccionActual("productos");
-      } else {
-        estructuraInicio();
-        guardarSeccionActual("inicio");
-      }
-    } else {
-      item.classList.remove("selected");
-    }
-  }
 }

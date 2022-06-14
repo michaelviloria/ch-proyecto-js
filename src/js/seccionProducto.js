@@ -113,7 +113,7 @@ function agregarCarrito({nombre, precio, cantidad, imagen, alt}) {
         {
           id: 1,
           nombre: nombre,
-          cantidad: parseInt(cantidadProducto.value),
+          cantidad: cantidadProducto,
           precio: precio,
           imagen: imagen,
           alt: alt,

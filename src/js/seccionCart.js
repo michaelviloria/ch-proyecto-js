@@ -20,8 +20,7 @@ function estructuraCart() {
   `;
   informacionProducto();
 
-  const menuList = document.getElementById("menuList");
-  const menuItems = menuList.querySelectorAll(".menu-item");
+  const menuItems = document.querySelectorAll(".menu-item");
   for (const item of menuItems) {
     item.classList.remove("selected");
   }

@@ -30,7 +30,7 @@ async function traerProductos() {
     productos.push(new Producto(elemento.id, elemento.nombre, elemento.precio, elemento.cantidad, elemento.marca, elemento.img, elemento.imgAlt));
   }
 
-  // Renderiza los productos en pantalla segun su marca
+  // Inicializa el renderizado por el Header
   estructuraHeader();
 }
 traerProductos();

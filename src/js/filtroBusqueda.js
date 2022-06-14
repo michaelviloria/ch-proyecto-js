@@ -19,7 +19,7 @@ function resultadoFiltro(busqueda) {
             </picture>
           </button>
           <h3>${productos[i].nombre}</h3>
-          <h4>$ ${productos[i].precio}</h4>
+          <h4>$ <span>${productos[i].precio}</span></h4>
         </article>
       `;
       productosEncontrados++;

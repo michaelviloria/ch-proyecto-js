@@ -84,7 +84,6 @@ function sumarPrecioTotal() {
 function modificarCantidadProducto(cantidadMaxima) {
   const contenedores = document.querySelectorAll(".cart-item--container");
   for (let contenedor of contenedores) {
-    let precioProducto = contenedor.querySelector(".cart-price-item--container");
     let cantidadProducto = contenedor.querySelector(".cart-amount--container");
     // Disminuir la cantidad del producto seleccionado
     let btnDecrease = contenedor.querySelector(".cart-icon--decrease");

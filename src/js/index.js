@@ -50,21 +50,23 @@ function mostrarProductos(marca) {
   let numeroElementosCreados = 1;
   for (let i = 0; i < productos.length; i++) {
     if (productos[i].marca == marca) {
-      producto += `
-        <article class="item--container" data-id="${productos[i].id}" data-cantidad="${productos[i].cantidad}">
-          <button class="btn-image--item">
-            <picture class="box-shadow">
-              <img src="${productos[i].img}" alt="${productos[i].imgAlt}" />
-            </picture>
-          </button>
-          <h3>${productos[i].nombre}</h3>
-          <h4>$ <span>${productos[i].precio}</span></h4>
-        </article>
-      `;
-      if (numeroElementosCreados >= 4) {
-        break
-      } else {
-        numeroElementosCreados += 1;
+      if (productos[i].agotado === false) {
+        producto += `
+          <article class="item--container" data-id="${productos[i].id}" data-cantidad="${productos[i].cantidad}">
+            <button class="btn-image--item">
+              <picture class="box-shadow">
+                <img src="${productos[i].img}" alt="${productos[i].imgAlt}" />
+              </picture>
+            </button>
+            <h3>${productos[i].nombre}</h3>
+            <h4>$ <span>${productos[i].precio}</span></h4>
+          </article>
+        `;
+        if (numeroElementosCreados >= 4) {
+          break
+        } else {
+          numeroElementosCreados += 1;
+        }
       }
     }
   }

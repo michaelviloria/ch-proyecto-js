@@ -31,19 +31,21 @@ function mostrarTodosProductos(marca) {
   `;
 
   for (let i = 0; i < productos.length; i++) {
-    if (productos[i].marca == marca) {
-      const contenedorElementos = document.querySelector(`.products--${marca}`);
-      contenedorElementos.innerHTML += `
-        <article class="item--container" data-id="${productos[i].id}" data-cantidad="${productos[i].cantidad}">
-          <button class="btn-image--item">
-            <picture class="box-shadow">
-              <img src="${productos[i].img}" alt="${productos[i].imgAlt}" />
-            </picture>
-          </button>
-          <h3>${productos[i].nombre}</h3>
-          <h4>$ <span>${productos[i].precio}</span></h4>
-        </article>
-      `;
+    if (productos[i].marca === marca) {
+      if (productos[i].agotado === false) {
+        const contenedorElementos = document.querySelector(`.products--${marca}`);
+        contenedorElementos.innerHTML += `
+          <article class="item--container" data-id="${productos[i].id}" data-cantidad="${productos[i].cantidad}">
+            <button class="btn-image--item">
+              <picture class="box-shadow">
+                <img src="${productos[i].img}" alt="${productos[i].imgAlt}" />
+              </picture>
+            </button>
+            <h3>${productos[i].nombre}</h3>
+            <h4>$ <span>${productos[i].precio}</span></h4>
+          </article>
+        `;
+      }
     }
   }
 

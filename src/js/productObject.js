@@ -14,6 +14,10 @@ class Producto {
     if (cantidadVenta <= this.cantidad) {
       this.cantidad -= cantidadVenta;
     }
+
+    if (this.cantidad === 0) {
+      this.agotado = true;
+    }
   }
 }
 
